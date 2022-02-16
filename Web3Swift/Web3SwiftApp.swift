@@ -11,7 +11,7 @@ import SwiftUI
 struct Web3SwiftApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BalanceView()
         }
     }
 }
