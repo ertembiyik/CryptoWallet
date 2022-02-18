@@ -18,6 +18,11 @@
 		2124105727BD5B9F0003B580 /* Web3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124105627BD5B9F0003B580 /* Web3Manager.swift */; };
 		2124105A27BD5F320003B580 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124105927BD5F320003B580 /* TransactionView.swift */; };
 		2124105C27BD5F3F0003B580 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124105B27BD5F3F0003B580 /* TransactionViewModel.swift */; };
+		2124105F27BD656D0003B580 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 2124105E27BD656D0003B580 /* web3swift */; };
+		2124106227BD66860003B580 /* Web3Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106127BD66860003B580 /* Web3Wallet.swift */; };
+		2124106427BD70500003B580 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106327BD70500003B580 /* Constants.swift */; };
+		2124106627BD83EA0003B580 /* ERC20Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106527BD83EA0003B580 /* ERC20Token.swift */; };
+		2124106A27BE33E00003B580 /* ClassicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106927BE33DF0003B580 /* ClassicButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2124102427BD5AA00003B580 /* Web3Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Web3Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2124102427BD5AA00003B580 /* CryptoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2124102727BD5AA00003B580 /* Web3SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3SwiftApp.swift; sourceTree = "<group>"; };
 		2124102927BD5AA00003B580 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		2124102B27BD5AA00003B580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +57,10 @@
 		2124105627BD5B9F0003B580 /* Web3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Manager.swift; sourceTree = "<group>"; };
 		2124105927BD5F320003B580 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		2124105B27BD5F3F0003B580 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		2124106127BD66860003B580 /* Web3Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Wallet.swift; sourceTree = "<group>"; };
+		2124106327BD70500003B580 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2124106527BD83EA0003B580 /* ERC20Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERC20Token.swift; sourceTree = "<group>"; };
+		2124106927BE33DF0003B580 /* ClassicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2124105F27BD656D0003B580 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +102,7 @@
 		2124102527BD5AA00003B580 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2124102427BD5AA00003B580 /* Web3Swift.app */,
+				2124102427BD5AA00003B580 /* CryptoWallet.app */,
 				2124103427BD5AA10003B580 /* Web3SwiftTests.xctest */,
 				2124103E27BD5AA10003B580 /* Web3SwiftUITests.xctest */,
 			);
@@ -102,9 +112,10 @@
 		2124102627BD5AA00003B580 /* Web3Swift */ = {
 			isa = PBXGroup;
 			children = (
-				2124105327BD5B180003B580 /* Managers */,
 				2124102727BD5AA00003B580 /* Web3SwiftApp.swift */,
-				2124105227BD5B0D0003B580 /* Screens */,
+				2124106027BD666F0003B580 /* Models */,
+				2124105327BD5B180003B580 /* Managers */,
+				2124106727BE33C40003B580 /* UI */,
 				2124102B27BD5AA00003B580 /* Assets.xcassets */,
 				2124102D27BD5AA00003B580 /* Preview Content */,
 			);
@@ -171,6 +182,33 @@
 			path = "Transaction Screen";
 			sourceTree = "<group>";
 		};
+		2124106027BD666F0003B580 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2124106127BD66860003B580 /* Web3Wallet.swift */,
+				2124106327BD70500003B580 /* Constants.swift */,
+				2124106527BD83EA0003B580 /* ERC20Token.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2124106727BE33C40003B580 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2124106827BE33CD0003B580 /* Elements */,
+				2124105227BD5B0D0003B580 /* Screens */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2124106827BE33CD0003B580 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				2124106927BE33DF0003B580 /* ClassicButton.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,8 +225,11 @@
 			dependencies = (
 			);
 			name = Web3Swift;
+			packageProductDependencies = (
+				2124105E27BD656D0003B580 /* web3swift */,
+			);
 			productName = Web3Swift;
-			productReference = 2124102427BD5AA00003B580 /* Web3Swift.app */;
+			productReference = 2124102427BD5AA00003B580 /* CryptoWallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2124103327BD5AA10003B580 /* Web3SwiftTests */ = {
@@ -259,6 +300,9 @@
 				Base,
 			);
 			mainGroup = 2124101B27BD5AA00003B580;
+			packageReferences = (
+				2124105D27BD656D0003B580 /* XCRemoteSwiftPackageReference "web3swift" */,
+			);
 			productRefGroup = 2124102527BD5AA00003B580 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -305,8 +349,12 @@
 				2124102A27BD5AA00003B580 /* BalanceView.swift in Sources */,
 				2124105A27BD5F320003B580 /* TransactionView.swift in Sources */,
 				2124105527BD5B5D0003B580 /* BalanceViewModel.swift in Sources */,
+				2124106227BD66860003B580 /* Web3Wallet.swift in Sources */,
+				2124106627BD83EA0003B580 /* ERC20Token.swift in Sources */,
+				2124106A27BE33E00003B580 /* ClassicButton.swift in Sources */,
 				2124102827BD5AA00003B580 /* Web3SwiftApp.swift in Sources */,
 				2124105C27BD5F3F0003B580 /* TransactionViewModel.swift in Sources */,
+				2124106427BD70500003B580 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +529,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ertembiyik.Web3Swift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CryptoWallet;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -510,7 +558,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ertembiyik.Web3Swift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CryptoWallet;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -633,6 +681,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2124105D27BD656D0003B580 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skywinder/web3swift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2124105E27BD656D0003B580 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2124105D27BD656D0003B580 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2124101C27BD5AA00003B580 /* Project object */;
 }

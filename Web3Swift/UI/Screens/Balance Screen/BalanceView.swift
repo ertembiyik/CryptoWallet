@@ -13,13 +13,13 @@ struct BalanceView: View {
     
     var body: some View {
             VStack {
-                Text("Balance: \(viewModel.balance) eth")
+                Text("Balance: \(viewModel.balance) xrt")
                     .font(.largeTitle).bold()
                     .padding()
                 
                 Spacer()
                 
-                ClassicButton(title: "Send eth")
+                ClassicButton(title: "Send xrt")
                     .padding()
                     .onTapGesture {
                         viewModel.isShowingTransactionView = true
@@ -31,19 +31,7 @@ struct BalanceView: View {
     }
 }
 
-struct ClassicButton: View {
-    let title: String
-    
-    var body: some View {
-        Text(title)
-            .font(.title2)
-            .fontWeight(.semibold)
-            .frame(width: 280, height: 50)
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-    }
-}
+
 
 
 struct ContentView_Previews: PreviewProvider {
