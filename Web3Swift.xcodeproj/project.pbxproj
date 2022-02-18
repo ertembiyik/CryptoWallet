@@ -18,11 +18,11 @@
 		2124105727BD5B9F0003B580 /* Web3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124105627BD5B9F0003B580 /* Web3Manager.swift */; };
 		2124105A27BD5F320003B580 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124105927BD5F320003B580 /* TransactionView.swift */; };
 		2124105C27BD5F3F0003B580 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124105B27BD5F3F0003B580 /* TransactionViewModel.swift */; };
-		2124105F27BD656D0003B580 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 2124105E27BD656D0003B580 /* web3swift */; };
-		2124106227BD66860003B580 /* Web3Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106127BD66860003B580 /* Web3Wallet.swift */; };
 		2124106427BD70500003B580 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106327BD70500003B580 /* Constants.swift */; };
 		2124106627BD83EA0003B580 /* ERC20Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106527BD83EA0003B580 /* ERC20Token.swift */; };
 		2124106A27BE33E00003B580 /* ClassicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124106927BE33DF0003B580 /* ClassicButton.swift */; };
+		218C9FB827BFD9AA00A0DAB9 /* Web3Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C9FB727BFD9AA00A0DAB9 /* Web3Wallet.swift */; };
+		218C9FC127BFE53F00A0DAB9 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 218C9FC027BFE53F00A0DAB9 /* web3swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +57,10 @@
 		2124105627BD5B9F0003B580 /* Web3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Manager.swift; sourceTree = "<group>"; };
 		2124105927BD5F320003B580 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		2124105B27BD5F3F0003B580 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
-		2124106127BD66860003B580 /* Web3Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Wallet.swift; sourceTree = "<group>"; };
 		2124106327BD70500003B580 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2124106527BD83EA0003B580 /* ERC20Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERC20Token.swift; sourceTree = "<group>"; };
 		2124106927BE33DF0003B580 /* ClassicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicButton.swift; sourceTree = "<group>"; };
+		218C9FB727BFD9AA00A0DAB9 /* Web3Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Wallet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2124105F27BD656D0003B580 /* web3swift in Frameworks */,
+				218C9FC127BFE53F00A0DAB9 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +185,7 @@
 		2124106027BD666F0003B580 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2124106127BD66860003B580 /* Web3Wallet.swift */,
+				218C9FB727BFD9AA00A0DAB9 /* Web3Wallet.swift */,
 				2124106327BD70500003B580 /* Constants.swift */,
 				2124106527BD83EA0003B580 /* ERC20Token.swift */,
 			);
@@ -226,7 +226,7 @@
 			);
 			name = Web3Swift;
 			packageProductDependencies = (
-				2124105E27BD656D0003B580 /* web3swift */,
+				218C9FC027BFE53F00A0DAB9 /* web3swift */,
 			);
 			productName = Web3Swift;
 			productReference = 2124102427BD5AA00003B580 /* CryptoWallet.app */;
@@ -301,7 +301,7 @@
 			);
 			mainGroup = 2124101B27BD5AA00003B580;
 			packageReferences = (
-				2124105D27BD656D0003B580 /* XCRemoteSwiftPackageReference "web3swift" */,
+				218C9FBF27BFE53F00A0DAB9 /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = 2124102527BD5AA00003B580 /* Products */;
 			projectDirPath = "";
@@ -349,10 +349,10 @@
 				2124102A27BD5AA00003B580 /* BalanceView.swift in Sources */,
 				2124105A27BD5F320003B580 /* TransactionView.swift in Sources */,
 				2124105527BD5B5D0003B580 /* BalanceViewModel.swift in Sources */,
-				2124106227BD66860003B580 /* Web3Wallet.swift in Sources */,
 				2124106627BD83EA0003B580 /* ERC20Token.swift in Sources */,
 				2124106A27BE33E00003B580 /* ClassicButton.swift in Sources */,
 				2124102827BD5AA00003B580 /* Web3SwiftApp.swift in Sources */,
+				218C9FB827BFD9AA00A0DAB9 /* Web3Wallet.swift in Sources */,
 				2124105C27BD5F3F0003B580 /* TransactionViewModel.swift in Sources */,
 				2124106427BD70500003B580 /* Constants.swift in Sources */,
 			);
@@ -442,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -497,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -683,20 +683,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2124105D27BD656D0003B580 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+		218C9FBF27BFE53F00A0DAB9 /* XCRemoteSwiftPackageReference "web3swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/skywinder/web3swift";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 2.5.0;
+				branch = develop;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2124105E27BD656D0003B580 /* web3swift */ = {
+		218C9FC027BFE53F00A0DAB9 /* web3swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2124105D27BD656D0003B580 /* XCRemoteSwiftPackageReference "web3swift" */;
+			package = 218C9FBF27BFE53F00A0DAB9 /* XCRemoteSwiftPackageReference "web3swift" */;
 			productName = web3swift;
 		};
 /* End XCSwiftPackageProductDependency section */
