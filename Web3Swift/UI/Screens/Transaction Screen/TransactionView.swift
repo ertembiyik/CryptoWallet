@@ -17,7 +17,7 @@ struct TransactionView: View {
                 TextField("Token addres",
                           text: $viewModel.sendingAddress)
                 TextField("Amount", text: $viewModel.sendingAmount)
-                    .keyboardType(.numberPad)
+                    .keyboardType(.numbersAndPunctuation)
             }
             
             Spacer()
@@ -28,7 +28,10 @@ struct TransactionView: View {
                 }
                 .padding()
         }
-        
+        .alert(viewModel.transactionHash, isPresented: $viewModel.isAlertPresented) {
+            Button("Ok", role: .cancel) { viewModel.isAlertPresented = false}
+            Button("Copy") { UIPasteboard.general.string = viewModel.transactionHash}
+        }
         
         
     }

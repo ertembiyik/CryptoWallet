@@ -6,80 +6,51 @@
 //
 
 import Foundation
-import web3swift
+import web3
 import BigInt
+import UIKit
 
 final class Web3Manager {
     
-    private static let web3 = Web3.InfuraRinkebyWeb3()
+    private static let clientUrl = URL(string: "https://sokol.poa.network")!
+    private static let client = EthereumClient(url: clientUrl)
     
-    static func importAccount(by privateKey: String, name: String) throws -> Web3Wallet {
-        let password = "web3swift"
-        let formattedKey = privateKey.trimmingCharacters(in: .whitespacesAndNewlines)
-        let dataKey = Data.fromHex(formattedKey)!
-        let keystore = try EthereumKeystoreV3(privateKey: dataKey, password: password)!
-        let keyData = try JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        return Web3Wallet(address: address, data: keyData, name: name, type: .normal)
-    }
+    private static let keyStorage = EthereumKeyLocalStorage()
     
-    static func getETHBalance(for wallet: Web3Wallet) throws -> String {
-        let walletAddress = EthereumAddress(wallet.address)!
-        let balanceResult = try web3.eth.getBalance(address: walletAddress)
-        let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 3)!
-        return balanceString
-    }
-    
-    static func getXRTBalance(for wallet: Web3Wallet) throws -> String {
-        let walletAddress = EthereumAddress(wallet.address)! // Your wallet address
-        let exploredAddress = EthereumAddress(wallet.address)! // Address which balance we want to know. Here we used same wallet address
-        let erc20ContractAddress = EthereumAddress(MyContsants.XRTToken.address)!
-        let contract = web3.contract(Web3.Utils.erc20ABI, at: erc20ContractAddress, abiVersion: 2)!
-        var options = TransactionOptions.defaultOptions
-        options.from = walletAddress
-        options.gasPrice = .automatic
-        options.gasLimit = .automatic
-        let method = "balanceOf"
-        let tx = contract.read(
-            method,
-            parameters: [exploredAddress] as [AnyObject],
-            extraData: Data(),
-            transactionOptions: options)!
-        let tokenBalance = try tx.call()
-        let balanceBigUInt = tokenBalance["0"] as! BigUInt
-        let balanceString = Web3.Utils.formatToEthereumUnits(balanceBigUInt, toUnits: .eth, decimals: 3)!
-        return balanceString
-    }
-    
-    static func sendXRTToken(value: String, from wallet: Web3Wallet, to address: String) throws {
+  
+    private static let etheriumAccount = try! EthereumAccount.importAccount(
+                keyStorage: Web3Manager.keyStorage,
+                privateKey: "2404a482a212386ecf1ed054547cf4d28348ddf73d23325a83373f803138f105",
+                keystorePassword: "hello")
         
-            let walletAddress = EthereumAddress(wallet.address)! // Your wallet address
-            let toAddress = EthereumAddress(address)!
-            let erc20ContractAddress = EthereumAddress(MyContsants.XRTToken.address)!
-            let contract = web3.contract(Web3.Utils.erc20ABI, at: erc20ContractAddress, abiVersion: 2)!
-            let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
-            var options = TransactionOptions.defaultOptions
-            options.value = amount
-            options.from = walletAddress
-            options.gasPrice = .automatic
-            options.gasLimit = .automatic
-            let method = "transfer"
-
-            let tx = contract.write(
-                method,
-                parameters: [toAddress, amount!] as [AnyObject],
-                extraData: Data(),
-                transactionOptions: options)!
-
-            do {
-                let result = try tx.send(transactionOptions: options)
-                print(result.hash)
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-            
-           
-        }
     
+    static func sendTransaction(from fromAddress: String = "0xE92A146f86fEda6D14Ee1dc1BfB620D3F3d1b873", to toAddress: String, amount: String) async throws -> String {
+        
+        let function = Transfer(contract: EthereumAddress("0x29df02D4425A86a29636CF770a50335e7857a4B0"),
+                                from: EthereumAddress(fromAddress),
+                                to: EthereumAddress(toAddress),
+                                value: BigUInt(Double(amount)!))
+        
+        let transaction = try function.transaction(gasPrice: BigUInt(10000000000), gasLimit: BigUInt(300000))
+        
+        do {
+            let hashValue = try await Web3Manager.client.eth_sendRawTransaction(transaction, withAccount: Web3Manager.etheriumAccount)
+            return hashValue
+        } catch {
+            throw error
+        }
+        
+    }
+    
+    
+    static func getBalance(for address: String = "0xE92A146f86fEda6D14Ee1dc1BfB620D3F3d1b873") async throws -> String {
+        do {
+            let token = ERC20(client: client)
+            
+            let balance = try await token.balanceOf(tokenContract: EthereumAddress("0x29df02D4425A86a29636CF770a50335e7857a4B0"), address: EthereumAddress(address))
+            return String(balance)
+        } catch {
+            throw error
+        }
+    }
 }

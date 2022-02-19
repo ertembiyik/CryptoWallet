@@ -8,8 +8,19 @@
 import SwiftUI
 
 final class BalanceViewModel: ObservableObject {
-    @Published var balance = try! Web3Manager.getXRTBalance(for: MyContsants.mockWallet)
+    @Published var balance = ""
     @Published var isShowingTransactionView = false
     
-    func updateBalance() {  }
+    func updateBalance() {
+        Task {
+            do {
+                let bal = try await Web3Manager.getBalance()
+                DispatchQueue.main.async {
+                    self.balance = bal
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

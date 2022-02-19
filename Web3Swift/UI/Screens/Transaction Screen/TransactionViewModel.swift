@@ -8,15 +8,24 @@
 import SwiftUI
 
 final class TransactionViewModel: ObservableObject {
-    @Published var sendingAmount: String = "0.000000000000000012"
+    @Published var sendingAmount: String = ""
     @Published var sendingAddress: String = "0x97369cc8bf2E6d18351BB79BE10c325FeBBE4F92"
+    @Published var transactionHash: String = ""
+    @Published var isAlertPresented: Bool = false
+    
     
     func sendTransaction() {
-        do {
-            let transaction = try Web3Manager.sendXRTToken(value: sendingAmount, from: MyContsants.mockWallet, to: sendingAddress)
-        } catch {
-            fatalError(error.localizedDescription)
+        Task {
+            do {
+                let hash = try await Web3Manager.sendTransaction(to: sendingAddress, amount: sendingAmount)
+                print(hash)
+                DispatchQueue.main.async {
+                    self.transactionHash = hash
+                    self.isAlertPresented = true
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
         }
-        
     }
 }

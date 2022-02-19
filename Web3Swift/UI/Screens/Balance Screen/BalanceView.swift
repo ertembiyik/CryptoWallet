@@ -25,6 +25,9 @@ struct BalanceView: View {
                         viewModel.isShowingTransactionView = true
                     }
             }
+            .onAppear(perform: {
+                viewModel.updateBalance()
+            })
             .sheet(isPresented: $viewModel.isShowingTransactionView) {
                 TransactionView()
             }
